@@ -102,9 +102,7 @@ public final class AdventuinParty {
             int poslen=0;
 
 
-            if(sorted.size()%2==0){
-
-                for(int i=0;i<sorted.size()/2;i++){
+             for(int i=0;i<sorted.size()/2;i++){
                     if(entry.getValue().get(i).getHeight() - entry.getValue().get(sorted.size()-i-1).getHeight()<0) {
                         neglen++;
                         negative+=-entry.getValue().get(i).getHeight() + entry.getValue().get(sorted.size()-i-1).getHeight();
@@ -123,12 +121,8 @@ public final class AdventuinParty {
                 if(entry.getValue().get(0).getHeight() - entry.getValue().get(sorted.size()/2-1).getHeight()>0) {
                     poslen++;
                     positive+=entry.getValue().get(0).getHeight() - entry.getValue().get(sorted.size()/2-1).getHeight();
-                }
-
-
             }
 
-            //same with %2==1
 
 
 
@@ -140,23 +134,6 @@ public final class AdventuinParty {
         }
         return ans;
 
-    }
-
-
-    public static void main(String[] args) {
-        List<Adventuin> lst = Arrays.asList(
-                new Adventuin("sandro", 101, new RgbColor(3, 2, 2, 0), HatType.FISHY_HAT, Language.GERMAN),
-                new Adventuin("giorgiii", 32, new RgbColor(2, 0, 2, 0), HatType.FISHY_HAT, Language.GERMAN),
-                new Adventuin("beqa", 105, new RgbColor(3, 2, 2, 0), HatType.SANTA_CLAUS, Language.ENGLISH),
-                new Adventuin("ana", 98, new RgbColor(3, 2, 2, 0), HatType.NO_HAT, Language.ENGLISH)
-        );
-
-        System.out.println(lst.
-                stream().mapToInt(x -> x.getName().length()).max().orElse(Integer.MAX_VALUE));
-
-        getAdventuinsWithLongestNamesByHatType(lst);
-
-        printLocalizedChristmasGreetings(lst);
     }
 
 }
